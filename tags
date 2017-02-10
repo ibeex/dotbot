@@ -1,0 +1,116 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+BLUE	dotbot/messenger/color.py	/^    BLUE = '\\033[94m'$/;"	kind:variable	line:7
+Clean	plugins/clean.py	/^class Clean(dotbot.Plugin):$/;"	kind:class	line:3
+Color	dotbot/messenger/color.py	/^class Color(object):$/;"	kind:class	line:1
+ConfigReader	dotbot/config.py	/^class ConfigReader(object):$/;"	kind:class	line:6
+Context	dotbot/context.py	/^class Context(object):$/;"	kind:class	line:3
+DEBUG	dotbot/messenger/level.py	/^    DEBUG = 10$/;"	kind:variable	line:3
+DispatchError	dotbot/dispatcher.py	/^class DispatchError(Exception):$/;"	kind:class	line:46
+Dispatcher	dotbot/dispatcher.py	/^class Dispatcher(object):$/;"	kind:class	line:6
+ERROR	dotbot/messenger/level.py	/^    ERROR = 40$/;"	kind:variable	line:7
+GREEN	dotbot/messenger/color.py	/^    GREEN = '\\033[92m'$/;"	kind:variable	line:5
+INFO	dotbot/messenger/level.py	/^    INFO = 20$/;"	kind:variable	line:5
+LOWINFO	dotbot/messenger/level.py	/^    LOWINFO = 15$/;"	kind:variable	line:4
+Level	dotbot/messenger/level.py	/^class Level(object):$/;"	kind:class	line:1
+Link	plugins/link.py	/^class Link(dotbot.Plugin):$/;"	kind:class	line:8
+MAGENTA	dotbot/messenger/color.py	/^    MAGENTA = '\\033[95m'$/;"	kind:variable	line:8
+Messenger	dotbot/messenger/messenger.py	/^class Messenger(with_metaclass(Singleton, object)):$/;"	kind:class	line:7
+NONE	dotbot/messenger/color.py	/^    NONE = ''$/;"	kind:variable	line:2
+NOTSET	dotbot/messenger/level.py	/^    NOTSET = 0$/;"	kind:variable	line:2
+PROJECT_ROOT_DIRECTORY	bin/dotbot	/^PROJECT_ROOT_DIRECTORY = os.path.dirname($/;"	kind:variable	line:5
+Plugin	dotbot/plugin.py	/^class Plugin(object):$/;"	kind:class	line:4
+RED	dotbot/messenger/color.py	/^    RED = '\\033[91m'$/;"	kind:variable	line:4
+RESET	dotbot/messenger/color.py	/^    RESET = '\\033[0m'$/;"	kind:variable	line:3
+ReadingError	dotbot/config.py	/^class ReadingError(Exception):$/;"	kind:class	line:26
+Shell	plugins/shell.py	/^class Shell(dotbot.Plugin):$/;"	kind:class	line:3
+Singleton	dotbot/util/singleton.py	/^class Singleton(type):$/;"	kind:class	line:1
+WARNING	dotbot/messenger/level.py	/^    WARNING = 30$/;"	kind:variable	line:6
+YELLOW	dotbot/messenger/color.py	/^    YELLOW = '\\033[93m'$/;"	kind:variable	line:6
+__call__	dotbot/util/singleton.py	/^    def __call__(cls, *args, **kwargs):$/;"	kind:member	line:3
+__init__	dotbot/config.py	/^    def __init__(self, config_file_path):$/;"	kind:member	line:7
+__init__	dotbot/context.py	/^    def __init__(self, base_directory):$/;"	kind:member	line:8
+__init__	dotbot/dispatcher.py	/^    def __init__(self, base_directory):$/;"	kind:member	line:7
+__init__	dotbot/messenger/messenger.py	/^    def __init__(self, level = Level.LOWINFO):$/;"	kind:member	line:8
+__init__	dotbot/plugin.py	/^    def __init__(self, context):$/;"	kind:member	line:9
+__init__.py	dotbot/__init__.py	1;"	kind:file	line:1
+__init__.py	dotbot/messenger/__init__.py	1;"	kind:file	line:1
+__init__.py	dotbot/util/__init__.py	1;"	kind:file	line:1
+__new__	dotbot/util/compat.py	/^        def __new__(cls, name, this_bases, d):$/;"	kind:member	line:3
+_clean	plugins/clean.py	/^    def _clean(self, target):$/;"	kind:member	line:28
+_color	dotbot/messenger/messenger.py	/^    def _color(self, level):$/;"	kind:member	line:33
+_create	plugins/link.py	/^    def _create(self, path):$/;"	kind:member	line:96
+_default_source	plugins/link.py	/^    def _default_source(self, destination, source):$/;"	kind:member	line:66
+_delete	plugins/link.py	/^    def _delete(self, source, path, relative, force):$/;"	kind:member	line:109
+_directive	plugins/clean.py	/^    _directive = 'clean'$/;"	kind:variable	line:8
+_directive	plugins/link.py	/^    _directive = 'link'$/;"	kind:variable	line:13
+_directive	plugins/shell.py	/^    _directive = 'shell'$/;"	kind:variable	line:8
+_exists	plugins/link.py	/^    def _exists(self, path):$/;"	kind:member	line:89
+_in_directory	plugins/clean.py	/^    def _in_directory(self, path, directory):$/;"	kind:member	line:45
+_instances	dotbot/util/singleton.py	/^    _instances = {}$/;"	kind:variable	line:2
+_is_link	plugins/link.py	/^    def _is_link(self, path):$/;"	kind:member	line:76
+_link	plugins/link.py	/^    def _link(self, source, link_name, relative, backup):$/;"	kind:member	line:145
+_link_destination	plugins/link.py	/^    def _link_destination(self, path):$/;"	kind:member	line:82
+_load_plugins	dotbot/dispatcher.py	/^    def _load_plugins(self):$/;"	kind:member	line:42
+_process_clean	plugins/clean.py	/^    def _process_clean(self, targets):$/;"	kind:member	line:18
+_process_commands	plugins/shell.py	/^    def _process_commands(self, data):$/;"	kind:member	line:19
+_process_links	plugins/link.py	/^    def _process_links(self, links):$/;"	kind:member	line:24
+_read	dotbot/config.py	/^    def _read(self, config_file_path):$/;"	kind:member	line:10
+_relative_path	plugins/link.py	/^    def _relative_path(self, source, destination):$/;"	kind:member	line:137
+_reset	dotbot/messenger/messenger.py	/^    def _reset(self):$/;"	kind:member	line:52
+_setup_context	dotbot/dispatcher.py	/^    def _setup_context(self, base_directory):$/;"	kind:member	line:12
+_timestamp	plugins/link.py	/^    _timestamp = str(int(time.time()))$/;"	kind:variable	line:14
+add_options	dotbot/cli.py	/^def add_options(parser):$/;"	kind:function	line:10
+base_directory	dotbot/context.py	/^    def base_directory(self):$/;"	kind:member	line:16
+can_handle	dotbot/plugin.py	/^    def can_handle(self, directive):$/;"	kind:member	line:13
+can_handle	plugins/clean.py	/^    def can_handle(self, directive):$/;"	kind:member	line:10
+can_handle	plugins/link.py	/^    def can_handle(self, directive):$/;"	kind:member	line:16
+can_handle	plugins/shell.py	/^    def can_handle(self, directive):$/;"	kind:member	line:10
+clean.py	plugins/clean.py	1;"	kind:file	line:1
+cli.py	dotbot/cli.py	1;"	kind:file	line:1
+color.py	dotbot/messenger/color.py	1;"	kind:file	line:1
+compat.py	dotbot/util/compat.py	1;"	kind:file	line:1
+config.py	dotbot/config.py	1;"	kind:file	line:1
+context.py	dotbot/context.py	1;"	kind:file	line:1
+debug	dotbot/messenger/messenger.py	/^    def debug(self, message):$/;"	kind:member	line:18
+defaults	dotbot/context.py	/^    def defaults(self):$/;"	kind:member	line:22
+dispatch	dotbot/dispatcher.py	/^    def dispatch(self, tasks):$/;"	kind:member	line:19
+dispatcher.py	dotbot/dispatcher.py	1;"	kind:file	line:1
+dotbot	bin/dotbot	1;"	kind:file	line:1
+error	dotbot/messenger/messenger.py	/^    def error(self, message):$/;"	kind:member	line:30
+get_config	dotbot/config.py	/^    def get_config(self):$/;"	kind:member	line:23
+handle	dotbot/plugin.py	/^    def handle(self, directive, data):$/;"	kind:member	line:19
+handle	plugins/clean.py	/^    def handle(self, directive, data):$/;"	kind:member	line:13
+handle	plugins/link.py	/^    def handle(self, directive, data):$/;"	kind:member	line:19
+handle	plugins/shell.py	/^    def handle(self, directive, data):$/;"	kind:member	line:13
+indent_lines	dotbot/util/string.py	/^def indent_lines(string, amount=2, delimiter='\\n'):$/;"	kind:function	line:1
+info	dotbot/messenger/messenger.py	/^    def info(self, message):$/;"	kind:member	line:24
+inject	bin/dotbot	/^def inject(lib_path):$/;"	kind:function	line:8
+level.py	dotbot/messenger/level.py	1;"	kind:file	line:1
+link.py	plugins/link.py	1;"	kind:file	line:1
+load	dotbot/util/module.py	/^def load(path):$/;"	kind:function	line:6
+load_module	dotbot/util/module.py	/^  def load_module(module_name, path):$/;"	kind:function	line:15
+load_module	dotbot/util/module.py	/^  def load_module(module_name, path):$/;"	kind:function	line:23
+load_module	dotbot/util/module.py	/^  def load_module(module_name, path):$/;"	kind:function	line:28
+loaded_modules	dotbot/util/module.py	/^loaded_modules = []$/;"	kind:variable	line:4
+log	dotbot/messenger/messenger.py	/^    def log(self, level, message):$/;"	kind:member	line:14
+lowinfo	dotbot/messenger/messenger.py	/^    def lowinfo(self, message):$/;"	kind:member	line:21
+main	bin/dotbot	/^def main():$/;"	kind:function	line:25
+main	dotbot/cli.py	/^def main():$/;"	kind:function	line:34
+messenger.py	dotbot/messenger/messenger.py	1;"	kind:file	line:1
+metaclass	dotbot/util/compat.py	/^    class metaclass(meta):$/;"	kind:class	line:2
+module.py	dotbot/util/module.py	1;"	kind:file	line:1
+plugin.py	dotbot/plugin.py	1;"	kind:file	line:1
+read_config	dotbot/cli.py	/^def read_config(config_file):$/;"	kind:function	line:30
+set_base_directory	dotbot/context.py	/^    def set_base_directory(self, base_directory):$/;"	kind:member	line:13
+set_defaults	dotbot/context.py	/^    def set_defaults(self, defaults):$/;"	kind:member	line:19
+set_level	dotbot/messenger/messenger.py	/^    def set_level(self, level):$/;"	kind:member	line:11
+shell.py	plugins/shell.py	1;"	kind:file	line:1
+singleton.py	dotbot/util/singleton.py	1;"	kind:file	line:1
+string.py	dotbot/util/string.py	1;"	kind:file	line:1
+warning	dotbot/messenger/messenger.py	/^    def warning(self, message):$/;"	kind:member	line:27
+with_metaclass	dotbot/util/compat.py	/^def with_metaclass(meta, *bases):$/;"	kind:function	line:1
