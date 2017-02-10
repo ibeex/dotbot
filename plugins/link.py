@@ -1,6 +1,8 @@
 import os
 import shutil
 import dotbot
+import errno
+import time
 
 
 class Link(dotbot.Plugin):
@@ -9,6 +11,7 @@ class Link(dotbot.Plugin):
     '''
 
     _directive = 'link'
+    _timestamp = str(int(time.time()))
 
     def can_handle(self, directive):
         return directive == self._directive
@@ -27,30 +30,58 @@ class Link(dotbot.Plugin):
             force = defaults.get('force', False)
             relink = defaults.get('relink', False)
             create = defaults.get('create', False)
+            backup = defaults.get('backup', False)
             if isinstance(source, dict):
                 # extended config
                 relative = source.get('relative', relative)
                 force = source.get('force', force)
                 relink = source.get('relink', relink)
                 create = source.get('create', create)
+                backup = defaults.get('backup', backup)
                 path = self._default_source(destination, source.get('path'))
             else:
                 path = self._default_source(destination, source)
             path = os.path.expandvars(os.path.expanduser(path))
+            if backup:
+                success &= self._create_dir(os.path.join(self._context.base_directory(), backup))
             if not self._exists(os.path.join(self._context.base_directory(), path)):
                 success = False
-                self._log.warning('Nonexistent target %s -> %s' %
-                    (destination, path))
+                if backup:
+                    success &= self._move(destination, path)
+                else:
+                    self._log.warning('Nonexistent target %s -> %s' %
+                                      (destination, path))
                 continue
             if create:
                 success &= self._create(destination)
             if force or relink:
                 success &= self._delete(path, destination, relative, force)
-            success &= self._link(path, destination, relative)
+            success &= self._link(path, destination, relative, backup)
         if success:
             self._log.info('All links have been set up')
         else:
             self._log.error('Some links were not successfully set up')
+        return success
+
+    def _move(self, link_name, path):
+        success = True
+        source = os.path.expanduser(link_name)
+        destination = os.path.join(self._context.base_directory(), path)
+        if os.path.isdir(source):
+            shutil.copytree(source, destination)
+            shutil.rmtree(source, ignore_errors=True)
+        elif os.path.isfile(source):
+            try:
+                os.makedirs(os.path.split(destination)[0])
+            except OSError as exception:
+                if exception.errno != errno.EEXIST:
+                    success = False
+            shutil.copy(source, destination)
+            os.unlink(source)
+        else:
+            self._log.warning('Config file missing %s' % source)
+            return False
+        self._log.info('Moved existing config %s' % source)
         return success
 
     def _default_source(self, destination, source):
@@ -82,6 +113,18 @@ class Link(dotbot.Plugin):
         '''
         path = os.path.expanduser(path)
         return os.path.exists(path)
+
+    def _create_dir(self, path):
+        success = True
+        if not self._exists(path):
+            try:
+                os.mkdir(path)
+            except OSError:
+                self._log.warning('Failed to create directory %s' % path)
+                success = False
+            else:
+                self._log.lowinfo('Creating directory %s' % path)
+        return success
 
     def _create(self, path):
         success = True
@@ -132,7 +175,7 @@ class Link(dotbot.Plugin):
         destination_dir = os.path.dirname(destination)
         return os.path.relpath(source, destination_dir)
 
-    def _link(self, source, link_name, relative):
+    def _link(self, source, link_name, relative, backup):
         '''
         Links link_name to source.
 
@@ -144,11 +187,13 @@ class Link(dotbot.Plugin):
         if relative:
             source = self._relative_path(absolute_source, destination)
         else:
+            if backup:
+                backup = os.path.join(backup, self._timestamp, source)
             source = absolute_source
         if (not self._exists(link_name) and self._is_link(link_name) and
                 self._link_destination(link_name) != source):
             self._log.warning('Invalid link %s -> %s' %
-                (link_name, self._link_destination(link_name)))
+                              (link_name, self._link_destination(link_name)))
         # we need to use absolute_source below because our cwd is the dotfiles
         # directory, and if source is relative, it will be relative to the
         # destination directory
@@ -161,20 +206,23 @@ class Link(dotbot.Plugin):
                 self._log.lowinfo('Creating link %s -> %s' % (link_name, source))
                 success = True
         elif self._exists(link_name) and not self._is_link(link_name):
-            self._log.warning(
-                '%s already exists but is a regular file or directory' %
-                link_name)
+            if backup:
+                success &= self._move(link_name, backup)
+            else:
+                self._log.warning(
+                    '%s already exists but is a regular file or directory' %
+                    link_name)
         elif self._is_link(link_name) and self._link_destination(link_name) != source:
             self._log.warning('Incorrect link %s -> %s' %
-                (link_name, self._link_destination(link_name)))
+                              (link_name, self._link_destination(link_name)))
         # again, we use absolute_source to check for existence
         elif not self._exists(absolute_source):
             if self._is_link(link_name):
                 self._log.warning('Nonexistent target %s -> %s' %
-                    (link_name, source))
+                                  (link_name, source))
             else:
                 self._log.warning('Nonexistent target for %s : %s' %
-                    (link_name, source))
+                                  (link_name, source))
         else:
             self._log.lowinfo('Link exists %s -> %s' % (link_name, source))
             success = True
