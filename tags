@@ -43,24 +43,26 @@ __init__.py	dotbot/util/__init__.py	1;"	kind:file	line:1
 __new__	dotbot/util/compat.py	/^        def __new__(cls, name, this_bases, d):$/;"	kind:member	line:3
 _clean	plugins/clean.py	/^    def _clean(self, target):$/;"	kind:member	line:28
 _color	dotbot/messenger/messenger.py	/^    def _color(self, level):$/;"	kind:member	line:33
-_create	plugins/link.py	/^    def _create(self, path):$/;"	kind:member	line:96
-_default_source	plugins/link.py	/^    def _default_source(self, destination, source):$/;"	kind:member	line:66
-_delete	plugins/link.py	/^    def _delete(self, source, path, relative, force):$/;"	kind:member	line:109
+_create	plugins/link.py	/^    def _create(self, path):$/;"	kind:member	line:128
+_create_dir	plugins/link.py	/^    def _create_dir(self, path):$/;"	kind:member	line:116
+_default_source	plugins/link.py	/^    def _default_source(self, destination, source):$/;"	kind:member	line:86
+_delete	plugins/link.py	/^    def _delete(self, source, path, relative, force):$/;"	kind:member	line:141
 _directive	plugins/clean.py	/^    _directive = 'clean'$/;"	kind:variable	line:8
 _directive	plugins/link.py	/^    _directive = 'link'$/;"	kind:variable	line:13
 _directive	plugins/shell.py	/^    _directive = 'shell'$/;"	kind:variable	line:8
-_exists	plugins/link.py	/^    def _exists(self, path):$/;"	kind:member	line:89
+_exists	plugins/link.py	/^    def _exists(self, path):$/;"	kind:member	line:109
 _in_directory	plugins/clean.py	/^    def _in_directory(self, path, directory):$/;"	kind:member	line:45
 _instances	dotbot/util/singleton.py	/^    _instances = {}$/;"	kind:variable	line:2
-_is_link	plugins/link.py	/^    def _is_link(self, path):$/;"	kind:member	line:76
-_link	plugins/link.py	/^    def _link(self, source, link_name, relative, backup):$/;"	kind:member	line:145
-_link_destination	plugins/link.py	/^    def _link_destination(self, path):$/;"	kind:member	line:82
+_is_link	plugins/link.py	/^    def _is_link(self, path):$/;"	kind:member	line:96
+_link	plugins/link.py	/^    def _link(self, source, link_name, relative, backup):$/;"	kind:member	line:177
+_link_destination	plugins/link.py	/^    def _link_destination(self, path):$/;"	kind:member	line:102
 _load_plugins	dotbot/dispatcher.py	/^    def _load_plugins(self):$/;"	kind:member	line:42
+_move	plugins/link.py	/^    def _move(self, link_name, path):$/;"	kind:member	line:65
 _process_clean	plugins/clean.py	/^    def _process_clean(self, targets):$/;"	kind:member	line:18
 _process_commands	plugins/shell.py	/^    def _process_commands(self, data):$/;"	kind:member	line:19
 _process_links	plugins/link.py	/^    def _process_links(self, links):$/;"	kind:member	line:24
 _read	dotbot/config.py	/^    def _read(self, config_file_path):$/;"	kind:member	line:10
-_relative_path	plugins/link.py	/^    def _relative_path(self, source, destination):$/;"	kind:member	line:137
+_relative_path	plugins/link.py	/^    def _relative_path(self, source, destination):$/;"	kind:member	line:169
 _reset	dotbot/messenger/messenger.py	/^    def _reset(self):$/;"	kind:member	line:52
 _setup_context	dotbot/dispatcher.py	/^    def _setup_context(self, base_directory):$/;"	kind:member	line:12
 _timestamp	plugins/link.py	/^    _timestamp = str(int(time.time()))$/;"	kind:variable	line:14

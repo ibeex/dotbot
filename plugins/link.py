@@ -45,13 +45,12 @@ class Link(dotbot.Plugin):
             if backup:
                 success &= self._create_dir(os.path.join(self._context.base_directory(), backup))
             if not self._exists(os.path.join(self._context.base_directory(), path)):
-                success = False
                 if backup:
                     success &= self._move(destination, path)
                 else:
                     self._log.warning('Nonexistent target %s -> %s' %
                                       (destination, path))
-                continue
+                    continue
             if create:
                 success &= self._create(destination)
             if force or relink:
@@ -75,7 +74,7 @@ class Link(dotbot.Plugin):
                 os.makedirs(os.path.split(destination)[0])
             except OSError as exception:
                 if exception.errno != errno.EEXIST:
-                    success = False
+                    pass
             shutil.copy(source, destination)
             os.unlink(source)
         else:
