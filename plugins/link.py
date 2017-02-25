@@ -206,7 +206,9 @@ class Link(dotbot.Plugin):
                 success = True
         elif self._exists(link_name) and not self._is_link(link_name):
             if backup:
-                success &= self._move(link_name, backup)
+                success = self._move(link_name, backup)
+                if success:
+                    success &= self._link(source, link_name, relative, backup)
             else:
                 self._log.warning(
                     '%s already exists but is a regular file or directory' %
